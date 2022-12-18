@@ -1,0 +1,41 @@
+ page {
+	background-color: gainsboro;
+}
+
+pic1{
+	width:100rpx;
+	height: 100rpx;
+	display: flex; 
+	justify-content: flex-end;
+}
+box{
+	background-image: url("static/Img.1-1.jpeg");
+	width: 400rpx;
+	height: 1000%;
+	display: flex;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+}
+box1{
+	font-size: 32ex;
+	font-family: 'Courier New', Courier, monospace;
+}
+box2{
+	font-size: 28ex;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+box3{
+	font-size: 28ex;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+pic2{
+	
+}
+pic3{
+	
+}
