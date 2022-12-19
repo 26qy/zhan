@@ -1,6 +1,6 @@
 <template>
 	<view class="box" @click="closepop(id)" style="width: 100vw;height: 100vw;">
-		<image src="../../static/background.jpg" style="justify-self: start;position: absolute;width: 100vw;height: 100vh;z-index: -10;" ></image>
+		<image class="pic" src="../../static/backg.jpg" style="justify-self: start;position: absolute;width: 100vw;height:200vw;z-index:-10;" ></image>
 		<view style="display:block; margin: 0 auto; width: 70vw; hight:70vw;margin-top: 8vw;">
 		
 			<view class="box3">
@@ -27,28 +27,30 @@
 			
 
 			<view class="box5">
-				<view style="display: flex;justify-content: space-around;width: 70vw;margin-top: 40rpx;position: relative;top: 170px;left: 10px;">
-					<view class="xun1">
+				<view class="xun" style="display: flex;justify-content: space-around;width: 70vw;margin-top: 40rpx;position: relative;top: 170px;left: 10px;">
+					
+						<view class="xun1">
 						<uni-transition :show="autoshow" :ref="ani_id0">
 							<image style="width: 23vw;height: 23vw;border-radius: 100rpx;" src="../../static/xun.jpg" mode="aspectFill" @click="popout(0)"></image>
 					    </uni-transition>
-					</view>
-					<view class="xun2">
+						</view>
+					    <view class="xun2">
 						<uni-transition :show="autoshow" :ref="ani_id1">
 							<image style="width: 23vw;height: 23vw;border-radius: 100rpx;" src="../../static/xun.jpg" mode="aspectFill" @click="popout(1)"></image>
 					    </uni-transition>
-					</view>
-					<view class="xun3">
+						</view>
+						<view class="xun3">
 						<uni-transition :show="autoshow" :ref="ani_id2">
 							<image style="width: 23vw;height: 23vw;border-radius: 100rpx;" src="../../static/xun.jpg" mode="aspectFill" @click="popout(2)"></image>
 					    </uni-transition>
-					</view>
+						</view>
+				    
 				</view>
 			</view>
 		</view>	
 		
 	<view class="share">
-			<view style="position:fixed; bottom:0; right:0;width:25vw;height: 25vw;background-color: aqua;position: relative;top: 180px; right: -248px;"></view>
+			<image style=" bottom:0; right:0;width:25vw;height: 25vw;position: relative;top: 180px; right: -248px;" src="../../static/pic.jpg"></image>
 		</view> 
 	
 	<view>
@@ -67,21 +69,23 @@
 				dat1 : [['食堂消费:',"2300"]],
 				dat2 : [['用水消费:',"1000"]],
 				dat3 : [['游泳消费:',"1000"]],
-				dat4 : [['校医院消费:',"100"]],
+				dat4 : [['天猫消费:',"100"]],
 				dat5 : [["9100"]],
 				show: false,
 				autoshow : true,
 				hadxun : 0,
 				id:"",
+				// ani_id : "popout",
 				ani_id0 : "popout0",
 				ani_id1 : "popout1",
 				ani_id2 : "popout2"
 			}
 		},
 		onLoad() {
-
+			
 		},
 		onReady(){
+			
 			this.$refs.popout0.init({
 				duration : 200,
 				timingFunction : "linear",
@@ -102,6 +106,12 @@
 				timingFunction : "linear",
 				delay : 0
 			})
+			// this.$refs.popout.init({
+			// 	duration : 200,
+			// 	timingFunction : "linear",
+			// 	delay : 0
+			// })
+			
 		},
 		methods: {
 			
@@ -153,7 +163,20 @@
 			},
 			xuhua(){
 				
-				}
+				},
+			// show(){
+			// 	this.$refs.popout.step({
+			// 		translateY : "-200rpx",
+			// 	 	scale: [1, 1]
+			// 	})
+			// 	this.$refs.popout.run(()=>{
+			// 		// console.log('jjj')
+			// 		_sf.hadxun = 0
+			// 		_sf['ani_id'+id] = "popout" + id
+			// 	})
+			// }
+			
+			
 			
 		}
 
@@ -161,75 +184,110 @@
 </script>
 
 <style>
-	@keyframes xun1{
-	  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+	 @keyframes xun1{
+	  
 	  0% {
-	    transform: scale(1); /*开始为原始大小*/
+	   /* transform: scale(1); */
+		transform:translateY(-400rpx);
 	  }
 	  10% {
-	    transform:translate(100px,-200px);
+	    transform:translateY(-400rpx);
 		width: 100%;
 		height: 100%;
-		backdrop-filter:saturate(150%) contrast(50%) blur(8px);
-		-webkit-backdrop-filter:saturate(150%) contrast(50%) blur(80px);
-		
-
-		 /*放大4倍*/
+		/* backdrop-filter:saturate(150%) contrast(50%) blur(8px);
+		-webkit-backdrop-filter:saturate(150%) contrast(50%) blur(80px); */
+		/* background-color:rgba(0,0,0,0~1); */
+		    background-color: rgb(255, 255, 255,0.1);
+		    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+		    backdrop-filter: blur(4px);
 	  }
 	  20% {
-		transform-origin:0px 280px;
-		transform: scale(2);
-		width: 100%;
+		/* transform-origin:0px 280px; */
+		transform:translateY(-400rpx);
+		/* transform: scale(1); */
+		/* width: 100%;
 		height: 100%;
 		backdrop-filter:saturate(150%) contrast(50%) blur(80px);
-		-webkit-backdrop-filter:saturate(150%) contrast(50%) blur(8px);
-		/* background-color:rgba(0,0,0,.3); */
+		-webkit-backdrop-filter:saturate(150%) contrast(50%) blur(8px); */
+		/* background-color:rgba(0,0,0,0~1); */
+		    background-color: rgb(255, 255, 255,0.1);
+		    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+		    backdrop-filter: blur(4px);
 		
 
 	  }
 	  100% {
-	    transform: scale(1);
-		}
-	}
-	
-	@keyframes xun2{
-	  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
-	  0% {
-	    transform: scale(1); /*开始为原始大小*/
-	  }
-	  10% {
-	    transform:translateY(-200px);
-		background-repeat: no-repeat;
-	  }
-	  20% {
-		transform-origin:0px 280px;
-		transform: scale(2);
+	     transform: scale(1); 
 		
-	  }
-	  100% {
-	    transform: scale(1);
 		}
 	}
 	
-	@keyframes xun3{
-	  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
-	  0% {
-	    transform: scale(1); /*开始为原始大小*/
-	  }
-	  10% {
-	     transform:translate(-100px,-200px) 
-	  }
-	  20% {
-		/* transform:translate(-80px,-200px); */
-		transform-origin:100px 280px;
-		transform: scale(2); 
-	  }
-	  100% {
-	    transform: scale(1);
+	@keyframes xuhua0{
+		0%{
+			background-color: rgb(255, 255, 255,0.1);
+			box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+			backdrop-filter: blur(4px);
+		}
+		50%{
+			background-color: rgb(255, 255, 255,0.1);
+			box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+			backdrop-filter: blur(4px);
+		}
+		75%{
+			background-color: rgb(255, 255, 255,0.1);
+			box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+			backdrop-filter: blur(4px);
+		}
+		100%{
+			transform: scale(1);
 		}
 	}
 	
-	.xun1{
+	.xun{
+			animation-name: xun1; 
+			animation-delay:2s;
+			-webkit-animation-delay:0s;
+			animation-timing-function: ease-in-out; 
+			animation-iteration-count: 1; 
+			animation-duration: 4s; 
+			
+	}
+	.box{
+		animation-name: xuhua0;
+		animation-delay:2s;
+		-webkit-animation-delay:0s;
+		animation-timing-function: ease-in-out; 
+		animation-iteration-count: 1; 
+		animation-duration: 4s; 
+	}
+	.pic{
+		animation-name: xuhua0;
+		animation-delay:2s;
+		-webkit-animation-delay:0s;
+		animation-timing-function: ease-in-out; 
+		animation-iteration-count: 1; 
+		animation-duration: 4s; 
+	}
+	
+	/* .xun1{ 
+			animation-name: xun1; 
+			animation-delay:2s;
+			-webkit-animation-delay:2s;
+			animation-timing-function: ease-in-out; 
+			animation-iteration-count: 1; 
+			animation-duration: 8s; 
+			
+	}
+	.xun2{
+			animation-name: xun1; 
+			animation-delay:2s;
+			-webkit-animation-delay:2s;
+			animation-timing-function: ease-in-out; 
+			animation-iteration-count: 1; 
+			animation-duration: 8s; 
+			
+	}
+	.xun3{
 			animation-name: xun1; 
 			animation-delay:2s;
 			-webkit-animation-delay:2s;
@@ -239,31 +297,13 @@
 			
 	}
 	
-	.xun2{
-			animation-name: xun2; 
-			animation-delay:2s;
-			-webkit-animation-delay:10s;
-			animation-timing-function: ease-in-out; 
-			animation-iteration-count: 1; 
-			animation-duration: 8s; 
-			
-	}
-	 
-	.xun3{
-			animation-name: xun3; 
-			animation-delay:2s;
-			-webkit-animation-delay:18s;
-			animation-timing-function: ease-in-out; 
-			animation-iteration-count: 1; 
-			animation-duration: 8s; 
-			
-	} 
+	
 	.xun1：active{
 		    background-color: rgb(255, 255, 255,0.1);
 		    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
 		    backdrop-filter: blur(4px);
 		
-	}
+	} */
 	.share{
 		position:fixed; 
 		bottom:0; 
